@@ -14,6 +14,9 @@
 		F60C2CB429C233AA00BE8A44 /* NBPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60C2CB329C233AA00BE8A44 /* NBPTests.swift */; };
 		F60C2CBE29C233AA00BE8A44 /* NBPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60C2CBD29C233AA00BE8A44 /* NBPUITests.swift */; };
 		F60C2CC029C233AA00BE8A44 /* NBPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60C2CBF29C233AA00BE8A44 /* NBPUITestsLaunchTests.swift */; };
+		F69F424929C24E00007CA836 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69F424829C24E00007CA836 /* NetworkManager.swift */; };
+		F69F424B29C24EA2007CA836 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69F424A29C24EA2007CA836 /* NetworkTests.swift */; };
+		F69F425229C3A3F8007CA836 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69F425129C3A3F8007CA836 /* NetworkErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		F60C2CB929C233AA00BE8A44 /* NBPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NBPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F60C2CBD29C233AA00BE8A44 /* NBPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBPUITests.swift; sourceTree = "<group>"; };
 		F60C2CBF29C233AA00BE8A44 /* NBPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F69F424829C24E00007CA836 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F69F424A29C24EA2007CA836 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		F69F425129C3A3F8007CA836 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +101,14 @@
 		F60C2C9B29C233A800BE8A44 /* NBP */ = {
 			isa = PBXGroup;
 			children = (
+				F69F425029C3A3DC007CA836 /* Utilites */,
+				F69F424729C24D78007CA836 /* Services */,
 				F61D315629C23AED002F2F87 /* Core */,
 				F61D315429C23A48002F2F87 /* ViewModels */,
 				F61D315329C23A42002F2F87 /* Views */,
 				F61D315229C23A3C002F2F87 /* Models */,
 				F60C2CA529C233AA00BE8A44 /* Assets.xcassets */,
+				F60C2CAA29C233AA00BE8A44 /* Info.plist */,
 			);
 			path = NBP;
 			sourceTree = "<group>";
@@ -108,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				F60C2CB329C233AA00BE8A44 /* NBPTests.swift */,
+				F69F424A29C24EA2007CA836 /* NetworkTests.swift */,
 			);
 			path = NBPTests;
 			sourceTree = "<group>";
@@ -154,11 +164,26 @@
 		F61D315629C23AED002F2F87 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				F60C2CAA29C233AA00BE8A44 /* Info.plist */,
 				F60C2C9C29C233A800BE8A44 /* AppDelegate.swift */,
 				F60C2C9E29C233A800BE8A44 /* SceneDelegate.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		F69F424729C24D78007CA836 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F69F424829C24E00007CA836 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F69F425029C3A3DC007CA836 /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				F69F425129C3A3F8007CA836 /* NetworkErrors.swift */,
+			);
+			path = Utilites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,7 +315,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F69F424929C24E00007CA836 /* NetworkManager.swift in Sources */,
 				F60C2CA129C233A800BE8A44 /* ViewController.swift in Sources */,
+				F69F425229C3A3F8007CA836 /* NetworkErrors.swift in Sources */,
 				F60C2C9D29C233A800BE8A44 /* AppDelegate.swift in Sources */,
 				F60C2C9F29C233A800BE8A44 /* SceneDelegate.swift in Sources */,
 			);
@@ -300,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F69F424B29C24EA2007CA836 /* NetworkTests.swift in Sources */,
 				F60C2CB429C233AA00BE8A44 /* NBPTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
