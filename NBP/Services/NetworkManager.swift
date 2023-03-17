@@ -20,7 +20,7 @@ protocol NetworkSession {
 class NetworkManager: NetworkSession {
     static let shared = NetworkManager()
     
-    func getXML(for url: String = "https://www.nbp.pl/kursy/xml/lastaa.xml", networkSession: URLSessionProtocol = URLSession.shared) async throws -> (Data, URLResponse) {
+    func getXML(for url: String = "https://www.nbp.pl/kursy/xml/lasta.xml", networkSession: URLSessionProtocol = URLSession.shared) async throws -> (Data, URLResponse) {
         guard let urlFromString = URL(string: url) else {
             throw NetworkError.invalidURL
         }

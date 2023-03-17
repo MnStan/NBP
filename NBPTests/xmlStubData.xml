@@ -1,0 +1,16 @@
+<tabela_kursow typ="A" uid="23a054">
+    <numer_tabeli>054/A/NBP/2023</numer_tabeli>
+    <data_publikacji>2023-03-17</data_publikacji>
+    <pozycja>
+        <nazwa_waluty>bat (Tajlandia)</nazwa_waluty>
+        <przelicznik>1</przelicznik>
+        <kod_waluty>THB</kod_waluty>
+        <kurs_sredni>0,1291</kurs_sredni>
+    </pozycja>
+    <pozycja>
+        <nazwa_waluty>dolar amerykański</nazwa_waluty>
+        <przelicznik>1</przelicznik>
+        <kod_waluty>USD</kod_waluty>
+        <kurs_sredni>4,4202</kurs_sredni>
+    </pozycja>
+</tabela_kursow>
