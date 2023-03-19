@@ -30,7 +30,7 @@ class TableElementsListStub: TableElementsListProtocol {
     
     var tableNumber: String = "054/A/NBP/2023"
     
-    var tableElements: [NBP.TableElementProtocol] = [TableElementStub(currencyName: "bat (Tajlandia)", currencyRate: "1", currencyCode: "THB", currencyAverageRate: "0,1291"), TableElementStub(currencyName: "dolar amerykański", currencyRate: "1", currencyCode: "USD", currencyAverageRate: "4,4202")]
+    var tableElements: [NBP.TableElementProtocol] = [TableElementStub(currencyName: "bat (Tajlandia)", currencyRate: "1", currencyCode: "THB", currencyAverageRate: "0.1291"), TableElementStub(currencyName: "dolar amerykański", currencyRate: "1", currencyCode: "USD", currencyAverageRate: "4.4202")]
     
     func isEqual(to: TableElementsListProtocol) -> Bool {
         var isEqual = false
@@ -59,7 +59,6 @@ final class ParseXMLTests: XCTestCase {
     var data: Data!
     
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         guard let url = Bundle(for: Self.self).url(forResource: "xmlStubData", withExtension: "xml") else {
             XCTFail("Can't find .xml file")
             return

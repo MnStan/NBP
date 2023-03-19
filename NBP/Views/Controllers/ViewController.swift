@@ -8,11 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var viewModel = ExchangeViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .cyan
+        
     }
 }
+
 

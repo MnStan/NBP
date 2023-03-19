@@ -32,7 +32,6 @@ extension TableElementProtocol {
     func getCurrencyCode() -> String { "" }
     func setCurrencyAverageRate(rate: String) {  }
     func getCurrencyAverageRate() -> String { "" }
-    
 }
 
 class TableElement: TableElementProtocol {
@@ -46,37 +45,5 @@ class TableElement: TableElementProtocol {
         self.currencyRate = currencyRate
         self.currencyCode = currencyCode
         self.currencyAverageRate = currencyAverageRate
-    }
-    
-    func setCurrencyName(name: String) {
-        currencyName = name
-    }
-    
-    func getCurrencyName() -> String {
-        return currencyName
-    }
-    
-    func setCurrencyRate(rate: String) {
-        currencyRate = rate
-    }
-    
-    func getCurrencyRate() -> String {
-        return currencyRate
-    }
-    
-    func setCurrencyCode(code: String) {
-        currencyCode = code
-    }
-    
-    func getCurrencyCode() -> String {
-        return currencyCode
-    }
-    
-    func setCurrencyAverageRate(rate: String) {
-        currencyAverageRate = rate
-    }
-    
-    func getCurrencyAverageRate() -> String {
-        return currencyAverageRate
     }
 }

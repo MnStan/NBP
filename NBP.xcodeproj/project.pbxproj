@@ -19,9 +19,12 @@
 		F685585C29C4F93C00A73732 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F685585B29C4F93C00A73732 /* Parser.swift */; };
 		F685586429C504D300A73732 /* TableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F685586329C504D300A73732 /* TableElement.swift */; };
 		F685586829C508B900A73732 /* TableElementsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F685586729C508B900A73732 /* TableElementsList.swift */; };
+		F6956E2429C711B100617F41 /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6956E2329C711B100617F41 /* ExchangeViewModel.swift */; };
+		F6956E2629C72E5F00617F41 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6956E2529C72E5F00617F41 /* Observable.swift */; };
 		F69F424929C24E00007CA836 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69F424829C24E00007CA836 /* NetworkManager.swift */; };
 		F69F424B29C24EA2007CA836 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69F424A29C24EA2007CA836 /* NetworkTests.swift */; };
 		F69F425229C3A3F8007CA836 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69F425129C3A3F8007CA836 /* NetworkErrors.swift */; };
+		F6C54FCD29C79CE10057E0EC /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C54FCC29C79CE10057E0EC /* InputError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +61,12 @@
 		F685585B29C4F93C00A73732 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		F685586329C504D300A73732 /* TableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableElement.swift; sourceTree = "<group>"; };
 		F685586729C508B900A73732 /* TableElementsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableElementsList.swift; sourceTree = "<group>"; };
+		F6956E2329C711B100617F41 /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
+		F6956E2529C72E5F00617F41 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		F69F424829C24E00007CA836 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F69F424A29C24EA2007CA836 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		F69F425129C3A3F8007CA836 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
+		F6C54FCC29C79CE10057E0EC /* InputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +169,7 @@
 		F61D315429C23A48002F2F87 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F6956E2329C711B100617F41 /* ExchangeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -189,6 +196,7 @@
 			children = (
 				F69F424829C24E00007CA836 /* NetworkManager.swift */,
 				F685585B29C4F93C00A73732 /* Parser.swift */,
+				F6956E2529C72E5F00617F41 /* Observable.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -197,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				F69F425129C3A3F8007CA836 /* NetworkErrors.swift */,
+				F6C54FCC29C79CE10057E0EC /* InputError.swift */,
 			);
 			path = Utilites;
 			sourceTree = "<group>";
@@ -332,10 +341,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F69F424929C24E00007CA836 /* NetworkManager.swift in Sources */,
+				F6956E2429C711B100617F41 /* ExchangeViewModel.swift in Sources */,
+				F6C54FCD29C79CE10057E0EC /* InputError.swift in Sources */,
 				F60C2CA129C233A800BE8A44 /* ViewController.swift in Sources */,
 				F69F425229C3A3F8007CA836 /* NetworkErrors.swift in Sources */,
 				F685586829C508B900A73732 /* TableElementsList.swift in Sources */,
 				F685586429C504D300A73732 /* TableElement.swift in Sources */,
+				F6956E2629C72E5F00617F41 /* Observable.swift in Sources */,
 				F60C2C9D29C233A800BE8A44 /* AppDelegate.swift in Sources */,
 				F60C2C9F29C233A800BE8A44 /* SceneDelegate.swift in Sources */,
 				F685585C29C4F93C00A73732 /* Parser.swift in Sources */,
@@ -504,8 +516,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,9 +525,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = maksymilianstan.NBP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -532,8 +547,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -541,9 +556,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = maksymilianstan.NBP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

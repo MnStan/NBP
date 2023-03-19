@@ -8,8 +8,6 @@
 import XCTest
 @testable import NBP
 
-
-
 class MockNetworkSession: URLSessionProtocol {
     var lastURL: URL?
     
@@ -26,6 +24,15 @@ class MockNetworkSessionInvalidResponse: URLSessionProtocol {
     func data(from url: URL, delegate: URLSessionTaskDelegate?) async throws -> (Data, URLResponse) {
         let data = "Hello".data(using: .utf8)!
         let response = HTTPURLResponse(url: URL(string: "www.test.com")!, statusCode: 300, httpVersion: nil, headerFields: [:])!
+        
+        return (data, response)
+    }
+}
+
+class MockNetworkSessionInvalidURL: URLSessionProtocol {
+    func data(from url: URL, delegate: URLSessionTaskDelegate?) async throws -> (Data, URLResponse) {
+        let data = "Hello".data(using: .utf8)!
+        let response = HTTPURLResponse(url: URL(string: "www.test.com")!, statusCode: 200, httpVersion: nil, headerFields: [:])!
         
         return (data, response)
     }
