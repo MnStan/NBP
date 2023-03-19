@@ -78,6 +78,7 @@ final class NetworkTests: XCTestCase {
             expectation.fulfill()
         }
         
+        // then
         wait(for: [expectation], timeout: 1)
     }
     
@@ -94,6 +95,7 @@ final class NetworkTests: XCTestCase {
             XCTFail("Error when fetching data")
         }
         
+        // then
         XCTAssertEqual(response.statusCode, 200)
     }
     
@@ -110,6 +112,7 @@ final class NetworkTests: XCTestCase {
             expectation.fulfill()
         }
         
+        // then
         wait(for: [expectation], timeout: 1)
     }
 }
