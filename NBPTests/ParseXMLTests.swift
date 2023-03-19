@@ -32,7 +32,7 @@ class TableElementsListStub: TableElementsListProtocol {
     
     var tableElements: [NBP.TableElementProtocol] = [TableElementStub(currencyName: "bat (Tajlandia)", currencyRate: "1", currencyCode: "THB", currencyAverageRate: "0,1291"), TableElementStub(currencyName: "dolar amerykański", currencyRate: "1", currencyCode: "USD", currencyAverageRate: "4,4202")]
     
-    func isEqal(to: TableElementsListProtocol) -> Bool {
+    func isEqual(to: TableElementsListProtocol) -> Bool {
         var isEqual = false
         if publicationDate == to.getPublicationDate() {
             if tableNumber == to.getTableNumber() {
@@ -85,7 +85,7 @@ final class ParseXMLTests: XCTestCase {
         
         // then
         if let parseResult {
-            XCTAssertTrue(stub.isEqal(to: parseResult))
+            XCTAssertTrue(stub.isEqual(to: parseResult))
         } else {
             XCTFail("Parse result nil")
         }
