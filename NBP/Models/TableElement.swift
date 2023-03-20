@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TableElementProtocol {
+protocol TableElementProtocol: AnyObject {
     var currencyName: String { get set }
     var currencyRate: String { get set }
     var currencyCode: String { get set }
@@ -24,14 +24,30 @@ protocol TableElementProtocol {
 }
 
 extension TableElementProtocol {
-    func setCurrencyName(name: String) {  }
-    func getCurrencyName() -> String { "" }
-    func setCurrencyRate(rate: String) {  }
-    func getCurrencyRate() -> String { "" }
-    func setCurrencyCode(code: String) {  }
-    func getCurrencyCode() -> String { "" }
-    func setCurrencyAverageRate(rate: String) {  }
-    func getCurrencyAverageRate() -> String { "" }
+    func setCurrencyName(name: String) {
+        currencyName = name
+    }
+    func getCurrencyName() -> String {
+        currencyName
+    }
+    func setCurrencyRate(rate: String) {
+        currencyRate = rate
+    }
+    func getCurrencyRate() -> String {
+        currencyRate
+    }
+    func setCurrencyCode(code: String) {
+        currencyCode = code
+    }
+    func getCurrencyCode() -> String {
+        currencyCode
+    }
+    func setCurrencyAverageRate(rate: String) {
+        currencyAverageRate = rate
+    }
+    func getCurrencyAverageRate() -> String {
+        currencyAverageRate
+    }
 }
 
 class TableElement: TableElementProtocol {

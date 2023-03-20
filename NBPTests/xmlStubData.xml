@@ -5,12 +5,12 @@
         <nazwa_waluty>bat (Tajlandia)</nazwa_waluty>
         <przelicznik>1</przelicznik>
         <kod_waluty>THB</kod_waluty>
-        <kurs_sredni>0.1291</kurs_sredni>
+        <kurs_sredni>0,1291</kurs_sredni>
     </pozycja>
     <pozycja>
         <nazwa_waluty>dolar amerykański</nazwa_waluty>
         <przelicznik>1</przelicznik>
         <kod_waluty>USD</kod_waluty>
-        <kurs_sredni>4.4202</kurs_sredni>
+        <kurs_sredni>4,4202</kurs_sredni>
     </pozycja>
 </tabela_kursow>

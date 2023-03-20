@@ -30,14 +30,14 @@ class TableElementsListStub: TableElementsListProtocol {
     
     var tableNumber: String = "054/A/NBP/2023"
     
-    var tableElements: [NBP.TableElementProtocol] = [TableElementStub(currencyName: "bat (Tajlandia)", currencyRate: "1", currencyCode: "THB", currencyAverageRate: "0.1291"), TableElementStub(currencyName: "dolar amerykański", currencyRate: "1", currencyCode: "USD", currencyAverageRate: "4.4202")]
+    var tableElements: [NBP.TableElementProtocol] = [TableElementStub(currencyName: "bat (Tajlandia)", currencyRate: "1", currencyCode: "THB", currencyAverageRate: "0,1291"), TableElementStub(currencyName: "dolar amerykański", currencyRate: "1", currencyCode: "USD", currencyAverageRate: "4,4202")]
     
     func isEqual(to: TableElementsListProtocol) -> Bool {
         var isEqual = false
         if publicationDate == to.getPublicationDate() {
             if tableNumber == to.getTableNumber() {
                 tableElements.enumerated().forEach {
-                    print($0, to.tableElements[$0.offset])
+                    print($0.element.currencyAverageRate)
                     if $0.element.currencyName == to.tableElements[$0.offset].getCurrencyName() {
                         if $0.element.currencyCode == to.tableElements[$0.offset].getCurrencyCode() {
                             if $0.element.currencyRate == to.tableElements[$0.offset].getCurrencyRate() {

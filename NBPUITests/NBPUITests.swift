@@ -8,34 +8,136 @@
 import XCTest
 
 final class NBPUITests: XCTestCase {
-
+    let app = XCUIApplication()
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    
+    func testInputViewButtonIsHidden() {
+        // then
+        XCTAssertFalse(!app.buttons.element(boundBy: 1).isHittable)
+    }
+    
+    func testOutputViewButtonIsHidden() {
+        // then
+        XCTAssertFalse(!app.buttons.element(boundBy: 2).isHittable)
+    }
+    
+    func testFirstLabelShouldDisplayTHB() {
+        // when
+        app.buttons.element(boundBy: 1).tap()
+        app.scrollViews.buttons.element(boundBy: 0).tap()
+        
+        // then
+        XCTAssertEqual(app.staticTexts.element(boundBy: 0).label , "THB")
+    }
+    
+    func testSecondLabelShouldDisplayTHB() {
+        // when
+        app.buttons.element(boundBy: 2).tap()
+        app.scrollViews.buttons.element(boundBy: 1).tap()
+        
+        // then
+        XCTAssertEqual(app.staticTexts.element(boundBy: 0).label , "USD")
+    }
+    
+    func testReverseButtonLabelShouldBeUSD() {
+        // when
+        app.buttons.element(boundBy: 1).tap()
+        app.scrollViews.buttons.element(boundBy: 0).tap()
+        
+        app.buttons.element(boundBy: 2).tap()
+        app.scrollViews.buttons.element(boundBy: 1).tap()
+        
+        app.buttons["sort"].tap()
+        
+        // then
+        XCTAssertEqual(app.staticTexts.element(boundBy: 0).label, "USD")
+    }
+    
+    func testReverseButtonTextFieldShouldBeSecondTextFieldValue() {
+        // when
+        app.buttons.element(boundBy: 1).tap()
+        app.scrollViews.buttons.element(boundBy: 0).tap()
+        
+        app.buttons.element(boundBy: 2).tap()
+        app.scrollViews.buttons.element(boundBy: 1).tap()
+        
+        app.textFields.element(boundBy: 0).tap()
+        
+        app.keys["2"].tap()
+        app.keys["4"].tap()
+        
+        let secondTextFieldValue = app.textFields.element(boundBy: 1).value as? String
+        
+        app.buttons["sort"].tap()
+        
+        // then
+        XCTAssertEqual(app.textFields.element(boundBy: 0).value as? String, secondTextFieldValue)
+    }
+    
+    func testThereIsOutput() {
+        // when
+        app.buttons.element(boundBy: 1).tap()
+        app.scrollViews.buttons.element(boundBy: 0).tap()
+        
+        app.buttons.element(boundBy: 2).tap()
+        app.scrollViews.buttons.element(boundBy: 1).tap()
+        
+        app.textFields.element(boundBy: 0).tap()
+        
+        app.keys["2"].tap()
+        app.keys["4"].tap()
+        
+        // then
+        XCTAssertNotEqual(app.textFields.element(boundBy: 1).value as? String, "")
+    }
+    
+    func testKeyboardShouldHideOnTap() {
+        // when
+        app.buttons.element(boundBy: 1).tap()
+        app.scrollViews.buttons.element(boundBy: 0).tap()
+        
+        app.buttons.element(boundBy: 2).tap()
+        app.scrollViews.buttons.element(boundBy: 1).tap()
+        
+        app.textFields.element(boundBy: 0).tap()
+        
+        app.tap()
+        
+        // then
+        XCTAssertEqual(app.keyboards.count, 0)
+    }
+    
+    func testTouchingWithoutCurrenciesShouldPresentError() {
+        // when
+        app.buttons["sort"].tap()
+        
+        // then
+        XCTAssert(app.alerts["Error"].exists)
+    }
+    
+    func testTouchWithoutInputCurrencyShouldPresentError() {
+        // when
+        app.buttons.element(boundBy: 1).tap()
+        app.scrollViews.buttons.element(boundBy: 0).tap()
+        
+        app.buttons["sort"].tap()
+        
+        // then
+        XCTAssert(app.alerts["Error"].exists)
+    }
+    
+    func testTouchWithoutOutputCurrencyShouldPresentError() {
+        // when
+        app.buttons.element(boundBy: 2).tap()
+        app.scrollViews.buttons.element(boundBy: 0).tap()
+        
+        app.buttons["sort"].tap()
+        
+        // then
+        XCTAssert(app.alerts["Error"].exists)
     }
 }

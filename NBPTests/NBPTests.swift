@@ -72,6 +72,8 @@ final class NBPTests: XCTestCase {
     func testFindAndCalculateShouldReturn292() {
         // given
         let sut = ViewModelMock()
+        sut.model.tableElements[0].setCurrencyAverageRate(rate: "0.1291")
+        sut.model.tableElements[1].setCurrencyAverageRate(rate: "4.4202")
         
         // when
         sut.findAndCalculate(model: sut.model)
@@ -91,31 +93,22 @@ final class NBPTests: XCTestCase {
         XCTAssertEqual(sut.model.tableElements[0].currencyAverageRate, "0.1291")
     }
     
-    func testGetCurrenciesNames() {
+    func testGetCurrencyNamesAndCodes() {
         // given
         let sut = ViewModelMock()
         
         // when
-        let names = sut.getCurrencyNames(model: sut.model)
+        let names = sut.getCurrencyNamesAndCodes(model: sut.model)
         
         // then
-        XCTAssertEqual(names, ["bat (Tajlandia)", "dolar amerykański"])
-    }
-    
-    func testGetCurrenciesCodes() {
-        // given
-        let sut = ViewModelMock()
-        
-        // when
-        let names = sut.getCurrencyCodes(model: sut.model)
-        
-        // then
-        XCTAssertEqual(names, ["THB", "USD"])
+        XCTAssertEqual(names[0].value, "THB")
     }
     
     func testFindAndCalculateShouldGiveError() {
         // given
         let sut = ViewModelBadInputMock()
+        sut.model.tableElements[0].setCurrencyAverageRate(rate: "0.1291")
+        sut.model.tableElements[1].setCurrencyAverageRate(rate: "4.4202")
         
         // when
         sut.findAndCalculate(model: sut.model)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ExchangeViewModelProtocol {
+protocol ExchangeViewModelProtocol: AnyObject {
     var model: TableElementsListProtocol { get set }
     var currency: Observable<String> { get set }
     var quantity: Observable<String> { get set }
@@ -16,9 +16,8 @@ protocol ExchangeViewModelProtocol {
     var errorObservable: Observable<Error> { get set }
     
     func findAndCalculate(model: TableElementsListProtocol)
-    func getCurrencyNames(model: TableElementsListProtocol) -> [String]
-    func getCurrencyCodes(model: TableElementsListProtocol) -> [String]
-    mutating func changeCommasToDots()
+    func getCurrencyNamesAndCodes(model: TableElementsListProtocol) -> [(key: String, value: String)]
+    func changeCommasToDots()
 }
 
 extension ExchangeViewModelProtocol {
@@ -56,37 +55,27 @@ extension ExchangeViewModelProtocol {
             }
             guard let doubleQuantity = Double(quantity.value) else {
                 errorObservable.value = InputError.badQuantityError
+                output.value = ""
                 return
             }
             
             output.value = String(format: "%.2f", doubleQuantity * ((sourceAvgRate / sourceRate) / (destinationAvgRate / destinationRate)))
         } else {
-            errorObservable.value = InputError.defaultError
+            errorObservable.value = InputError.noCurrency
         }
     }
     
 
     
-    func getCurrencyNames(model: TableElementsListProtocol) -> [String] {
-        var currencyNamesArray: [String] = []
-        currencyNamesArray.reserveCapacity(model.tableElements.count)
+    func getCurrencyNamesAndCodes(model: TableElementsListProtocol) -> [(key: String, value: String)] {
+        var currencyNamesDicrtionary: [String: String] = [:]
+        currencyNamesDicrtionary.reserveCapacity(model.tableElements.count)
         
         model.tableElements.forEach {
-            currencyNamesArray.append($0.currencyName)
+            currencyNamesDicrtionary.updateValue($0.currencyCode, forKey: $0.currencyName)
         }
         
-        return currencyNamesArray
-    }
-    
-    func getCurrencyCodes(model: TableElementsListProtocol) -> [String] {
-        var currencyNamesArray: [String] = []
-        currencyNamesArray.reserveCapacity(model.tableElements.count)
-        
-        model.tableElements.forEach {
-            currencyNamesArray.append($0.currencyCode)
-        }
-        
-        return currencyNamesArray
+        return currencyNamesDicrtionary.sorted(by: { $0.key.lowercased() < $1.key.lowercased() })
     }
 }
 
@@ -105,7 +94,7 @@ class ExchangeViewModel: ExchangeViewModelProtocol {
         self.model = model
     }
     
-    func getData(url: String = "https://www.nbp.pl/kursy/xml/lasta.xml", session: URLSessionProtocol = URLSession.shared) {
+    func getData(url: String = "https://www.nbp.pl/kursy/xml/lasta.xml", session: URLSessionProtocol = URLSession.shared, completionHandler: @escaping (Bool) -> () = { _ in  }) {
         Task {
             do {
                 let data = try await networkManager.getXML(for: url, networkSession: session).0
@@ -114,26 +103,21 @@ class ExchangeViewModel: ExchangeViewModelProtocol {
                     guard let self else { return }
                     self.model = parsedModel
                     self.changeCommasToDots()
+                    completionHandler(true)
                 }
                 
             } catch {
-                print("Catch block")
+                completionHandler(false)
+                
                 switch error {
                 case NetworkError.invalidURL:
                     errorObservable.value = error
                 case NetworkError.invalidResponse:
                     errorObservable.value = error
                 default:
-                    print("tutaj")
                     errorObservable.value = NetworkError.defaultError
                 }
             }
-        }
-    }
-    
-    func changeCommasToDots() {
-        model.tableElements.forEach {
-            $0.setCurrencyAverageRate(rate: $0.currencyAverageRate.replacingOccurrences(of: ",", with: "."))
         }
     }
     
@@ -141,12 +125,7 @@ class ExchangeViewModel: ExchangeViewModelProtocol {
         findAndCalculate(model: model)
     }
     
-    func getNames() -> [String] {
-        getCurrencyNames(model: model)
+    func getNamesAndCodes() -> [(key: String, value: String)] {
+        getCurrencyNamesAndCodes(model: model)
     }
-    
-    func getCodes() -> [String] {
-        getCurrencyCodes(model: model)
-    }
-    
 }

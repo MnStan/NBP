@@ -8,6 +8,7 @@
 import Foundation
 
 enum InputError: String, Error {
-    case defaultError = "Something went wrong"
-    case badQuantityError = "Bad quantity. Please enter again"
+    case defaultError = "Something went wrong."
+    case badQuantityError = "Bad quantity. Please enter again."
+    case noCurrency = "Please choose currency."
 }

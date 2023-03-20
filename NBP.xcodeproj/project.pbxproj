@@ -16,6 +16,10 @@
 		F60C2CB429C233AA00BE8A44 /* NBPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60C2CB329C233AA00BE8A44 /* NBPTests.swift */; };
 		F60C2CBE29C233AA00BE8A44 /* NBPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60C2CBD29C233AA00BE8A44 /* NBPUITests.swift */; };
 		F60C2CC029C233AA00BE8A44 /* NBPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60C2CBF29C233AA00BE8A44 /* NBPUITestsLaunchTests.swift */; };
+		F641047329C79ED8007A3520 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641047229C79ED8007A3520 /* InputTextField.swift */; };
+		F641047729C83DA4007A3520 /* CurrencyNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641047629C83DA3007A3520 /* CurrencyNameLabel.swift */; };
+		F641047A29C83E2A007A3520 /* InputOutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641047929C83E2A007A3520 /* InputOutputView.swift */; };
+		F641047E29C84E52007A3520 /* ReverseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641047D29C84E52007A3520 /* ReverseButton.swift */; };
 		F685585C29C4F93C00A73732 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F685585B29C4F93C00A73732 /* Parser.swift */; };
 		F685586429C504D300A73732 /* TableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F685586329C504D300A73732 /* TableElement.swift */; };
 		F685586829C508B900A73732 /* TableElementsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F685586729C508B900A73732 /* TableElementsList.swift */; };
@@ -58,6 +62,10 @@
 		F60C2CB929C233AA00BE8A44 /* NBPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NBPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F60C2CBD29C233AA00BE8A44 /* NBPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBPUITests.swift; sourceTree = "<group>"; };
 		F60C2CBF29C233AA00BE8A44 /* NBPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F641047229C79ED8007A3520 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
+		F641047629C83DA3007A3520 /* CurrencyNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyNameLabel.swift; sourceTree = "<group>"; };
+		F641047929C83E2A007A3520 /* InputOutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOutputView.swift; sourceTree = "<group>"; };
+		F641047D29C84E52007A3520 /* ReverseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseButton.swift; sourceTree = "<group>"; };
 		F685585B29C4F93C00A73732 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		F685586329C504D300A73732 /* TableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableElement.swift; sourceTree = "<group>"; };
 		F685586729C508B900A73732 /* TableElementsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableElementsList.swift; sourceTree = "<group>"; };
@@ -161,6 +169,10 @@
 		F61D315329C23A42002F2F87 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F641047C29C84E31007A3520 /* Buttons */,
+				F641047B29C84E19007A3520 /* CustomViews */,
+				F641047529C83D88007A3520 /* Labels */,
+				F641047429C83C90007A3520 /* TextFields */,
 				F61D315529C23AD9002F2F87 /* Controllers */,
 			);
 			path = Views;
@@ -189,6 +201,38 @@
 				F60C2C9E29C233A800BE8A44 /* SceneDelegate.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		F641047429C83C90007A3520 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				F641047229C79ED8007A3520 /* InputTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		F641047529C83D88007A3520 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				F641047629C83DA3007A3520 /* CurrencyNameLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		F641047B29C84E19007A3520 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				F641047929C83E2A007A3520 /* InputOutputView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		F641047C29C84E31007A3520 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				F641047D29C84E52007A3520 /* ReverseButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		F69F424729C24D78007CA836 /* Services */ = {
@@ -343,7 +387,10 @@
 				F69F424929C24E00007CA836 /* NetworkManager.swift in Sources */,
 				F6956E2429C711B100617F41 /* ExchangeViewModel.swift in Sources */,
 				F6C54FCD29C79CE10057E0EC /* InputError.swift in Sources */,
+				F641047729C83DA4007A3520 /* CurrencyNameLabel.swift in Sources */,
 				F60C2CA129C233A800BE8A44 /* ViewController.swift in Sources */,
+				F641047329C79ED8007A3520 /* InputTextField.swift in Sources */,
+				F641047A29C83E2A007A3520 /* InputOutputView.swift in Sources */,
 				F69F425229C3A3F8007CA836 /* NetworkErrors.swift in Sources */,
 				F685586829C508B900A73732 /* TableElementsList.swift in Sources */,
 				F685586429C504D300A73732 /* TableElement.swift in Sources */,
@@ -351,6 +398,7 @@
 				F60C2C9D29C233A800BE8A44 /* AppDelegate.swift in Sources */,
 				F60C2C9F29C233A800BE8A44 /* SceneDelegate.swift in Sources */,
 				F685585C29C4F93C00A73732 /* Parser.swift in Sources */,
+				F641047E29C84E52007A3520 /* ReverseButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
