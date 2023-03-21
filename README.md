@@ -9,11 +9,11 @@
   * [Features to add](#features-to-add)
 
 ## Introduction
-  I build this app for university assignment 
+  I built this app for university assignment from class Object Technologies.
   
-  The main goal for me was to train Unit Testing and UI Testing.
+  Besides the assignment the main goal for me was to train Unit Testing and UI Testing.
   
-  The application allows the user to choose the starting and destination currency. Then with given information from Bank user can calculate currency value.
+  The application allows the user to select the starting and destination currency. Then with given information from Bank user can calculate currency value.
 
 ## Technologies
   Xcode - 14.2
@@ -31,5 +31,5 @@
 
   
  ## Features to add
- - [ ] API call for driving licenses
- - [ ] SwiftUI screen with BarChart for number of vehicles registered in given month/year
+ - [ ] Custom error alert
+ - [ ] Custom view for selecting currencies
